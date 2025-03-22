@@ -4,7 +4,8 @@
    <meta charset="utf-8">
    <title>COMP5347 Assignment One</title>
    <link rel="stylesheet" href="index.css" />
-   <script type="text/javascript" src="index.js"></script>
+   <script type="text/javascript" src="index.js" defer></script>
+
 </head>
 <body>
    <form method="get" action="">
@@ -33,13 +34,18 @@
          </div>
          <div id="rightControl">
             <div id="cart">
-               <button>
-                  Add to cart
-               </button>
-               <button>
-                  Reset the cart
-               </button>
-            </div>
+               <button id="addToCartBtn">Add to cart</button>
+               <button id="resetCartBtn">Reset the cart</button>
+               <span>🛒</span>
+               <span id="cartCount">(0)</span>
+             </div>
+             <!-- Dark Mode Switch -->
+            <div id="darkModeContainer">
+               <label class="switch">
+               <input type="checkbox" id="darkModeToggle">
+               <span class="slider round"></span>
+               </label>
+            </div>          
          </div>
          
 
@@ -63,28 +69,8 @@
                </tr>
             </thead>
             <tbody id="bookTable"> 
-                  <tr data-category="Art">
-                     <td><input type="checkbox"></td>
-                     <td><img src="book1.jpg" alt="Book Cover" class="cover"> The Arts: A Visual Encyclopedia</td>
-                     <td>DK</td>
-                     <td>2017</td>
-                     <td>$13.99</td>
-                     <td>DK Children</td>
-                     <td>Art</td>
-                  </tr>
-                  <tr data-category="Science History">
-                     <td><input type="checkbox"></td>
-                     <td><img src="book3.jpg" alt="Book Cover" class="cover"> The Scientists: A History of Science</td>
-                     <td>John Gribbin</td>
-                     <td>2004</td>
-                     <td>$16.00</td>
-                     <td>Random House</td>
-                     <td>Science History</td>
-                  </tr>
             </tbody>
          </table>
-
-         
       </div>   
    </form>
 </body>
