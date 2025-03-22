@@ -14,7 +14,7 @@
       <div id="searchBox">
          <div id="leftControl">
             <div id="searchBar">
-               <input id="searchInput" placeholder="Search for books">
+               <input type="text" id="searchInput" placeholder="Search for books">
                <button id="btn">Search</button>
             </div>
             <div id="filterBar">
@@ -26,6 +26,7 @@
                   <option value="Action and Adventure">Action and Adventure</option>
                   <option value="Health">Health</option>
                   <option value="Science Fiction">Science Fiction</option>
+                  <!-- <option value="GhostCategory">GhostCategory</option> --> /Just for boundary case testing - Pass
                </select>
                <button id="filterBtn">Filter</button>
             </div>
@@ -51,8 +52,10 @@
             <thead>
                <tr>
                   <th></th>
+                  <th>Image</th>
                   <th>Title</th>
-                  <th>Authors</th>
+                  <th>Rating</th>
+                  <th>Author</th>
                   <th>Year</th>
                   <th>Price</th>
                   <th>Publisher</th>
