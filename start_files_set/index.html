@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+   <meta charset="utf-8">
+   <title>COMP5347 Assignment One</title>
+   <link rel="stylesheet" href="index.css" />
+   <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+   <form method="get" action="">
+      <div id="title">
+         <h1>B2Ybooks</h1>
+      </div>
+      <div id="searchBox">
+         <div id="leftControl">
+            <div id="searchBar">
+               <input id="searchInput" placeholder="Search for books">
+               <button id="btn">Search</button>
+            </div>
+            <div id="filterBar">
+               <select id="filterCategories">
+                  <option value="" disabled selected hidden>Category</option>
+                  <option value="">All</option>
+                  <option value="Art">Art</option>
+                  <option value="Science History">Science History</option>
+                  <option value="Action and Adventure">Action and Adventure</option>
+                  <option value="Health">Health</option>
+                  <option value="Science Fiction">Science Fiction</option>
+               </select>
+               <button id="filterBtn">Filter</button>
+            </div>
+         </div>
+         <div id="rightControl">
+            <div id="cart">
+               <button>
+                  Add to cart
+               </button>
+               <button>
+                  Reset the cart
+               </button>
+            </div>
+         </div>
+         
+
+      </div>
+      <div id="listBox">
+         <!-- <div id="colorLine" >
+         </div> -->
+         <table>
+            <caption>Available Books</caption>
+            <thead>
+               <tr>
+                  <th></th>
+                  <th>Title</th>
+                  <th>Authors</th>
+                  <th>Year</th>
+                  <th>Price</th>
+                  <th>Publisher</th>
+                  <th>Category</th>
+               </tr>
+            </thead>
+            <tbody id="bookTable"> 
+                  <tr data-category="Art">
+                     <td><input type="checkbox"></td>
+                     <td><img src="book1.jpg" alt="Book Cover" class="cover"> The Arts: A Visual Encyclopedia</td>
+                     <td>DK</td>
+                     <td>2017</td>
+                     <td>$13.99</td>
+                     <td>DK Children</td>
+                     <td>Art</td>
+                  </tr>
+                  <tr data-category="Science History">
+                     <td><input type="checkbox"></td>
+                     <td><img src="book3.jpg" alt="Book Cover" class="cover"> The Scientists: A History of Science</td>
+                     <td>John Gribbin</td>
+                     <td>2004</td>
+                     <td>$16.00</td>
+                     <td>Random House</td>
+                     <td>Science History</td>
+                  </tr>
+            </tbody>
+         </table>
+
+         
+      </div>   
+   </form>
+</body>
+</html>
