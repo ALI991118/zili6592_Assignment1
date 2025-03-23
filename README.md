@@ -7,22 +7,36 @@ A Dynamic Book Browsing Web Application
 B2Ybooks is a lightweight, interactive front-end web app
 
 Feature Description:
+
 🔍 Search Real-time book search by title with highlighted results
+
 🎨 Filter Filter by category with or without search
+
 🛒 Cart System Select one book at a time, enter quantity, auto-save to localStorage
+
 ♻️ Reset Cart Clears the cart with confirmation prompt
+
 🌗 Dark Mode Toggle Beautifully styled switch with gradient background and sun/moon icons
-💾 Persistent State Cart contents and dark mode persist between page reloads via localStorage
+
+💾 Persistent State Cart contents and dark mode persist between page reloads via
+localStorage
 
 ## Folder Structure
 
 B2Ybooks/
+
 ├── index.html # Main HTML page
+
 ├── index.css # Styling (light/dark mode, table, layout)
+
 ├── index.js # All interactivity logic
+
 ├── data.json # Book data in JSON format
+
 ├── images/ # Folder for book cover images
+
 │ └── (book images)
+
 ├── README.md # This file
 
 ## Getting Started
