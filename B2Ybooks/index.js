@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function filterAndSearchBooks() {
     const rawInput = document.getElementById("searchInput").value;
-    const searchTerm = rawInput.trim().toLowerCase(); // 去除空格
+    const searchTerm = rawInput.trim().toLowerCase();
     const selectedCategory = document.getElementById("filterCategories").value;
   
     let filteredBooks;
-  
+    
     // 🧠 Edge case: 空输入 or 全是空格
     const isEmptySearch = rawInput.trim() === "";
   
@@ -29,42 +29,74 @@ document.addEventListener("DOMContentLoaded", function () {
         return matchesCategory && matchesSearch;
       });
     } else {
-      // 没选分类
-      filteredBooks = bookData.slice(); // 全部拷贝
+      // ✅ 修改这里，确保只在有搜索词时才过滤，否则显示全部
+      filteredBooks = isEmptySearch
+        ? bookData.slice()
+        : bookData.filter(book => book.title.toLowerCase().includes(searchTerm));
     }
   
+    // ✅ 三种情况的无结果提示
+    if (filteredBooks.length === 0) {
+      if (!isEmptySearch && selectedCategory !== "") {
+        alert("No matching books found for the selected category and search term.");
+      } else if (!isEmptySearch) {
+        alert("No books match your search term.");
+      } else if (selectedCategory !== "") {
+        alert("No books found in the selected category.");
+      }
+    }
+
     // 渲染 & 仅在非空搜索时执行高亮
     displayBooks(filteredBooks, isEmptySearch ? "" : searchTerm);
   }
+
     
 
   function displayBooks(books, searchTerm = "") {
     const tableBody = document.getElementById("bookTable");
     tableBody.innerHTML = "";
-
+  
     books.forEach(book => {
       const row = document.createElement("tr");
-
+  
       const shouldHighlight =
         searchTerm !== "" && book.title.toLowerCase().includes(searchTerm);
-
-      row.style.backgroundColor = shouldHighlight ? "#ffffcc" : "";
-
+  
+      if (shouldHighlight) {
+        row.classList.add("highlighted");
+      } else {
+        row.classList.remove("highlighted");
+      }
+  
+      // ⭐ 把数字转换成星星字符串
+      const ratingStars = getStars(book.rating);
+  
       row.innerHTML = `
         <td><input type="checkbox"></td>
         <td><img src="${book.img}" alt="Book Cover" style="width:50px; height:auto;"></td>
         <td>${book.title}</td>
-        <td>${book.rating}</td>
+        <td>${ratingStars}</td>
         <td>${book.authors}</td>
         <td>${book.year}</td>
         <td>$${book.price}</td>
         <td>${book.publisher}</td>
         <td>${book.category}</td>
       `;
-
+  
       tableBody.appendChild(row);
     });
   }
+  
+  // ⭐ 工具函数：把数字转为星星图标
+  function getStars(rating) {
+    const fullStar = '<span class="full">★</span>';
+    const emptyStar = '<span class="empty">☆</span>';
+    const max = 5;
+  
+    const rounded = Math.round(rating);
+    return `<span class="star-rating">${fullStar.repeat(rounded)}${emptyStar.repeat(max - rounded)}</span>`;
+  }
+  
 
   // 搜索按钮
   document.getElementById("btn").addEventListener("click", function (event) {
@@ -80,12 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+
 let cart = [];
 
 // 初始化：从 localStorage 恢复购物车
 document.addEventListener("DOMContentLoaded", () => {
   const storedCart = localStorage.getItem("cart");
-  localStorage.removeItem("cart");
+  // localStorage.removeItem("cart");
   if (storedCart) {
     cart = JSON.parse(storedCart);
     updateCartCount();

@@ -1,77 +1,92 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-   <meta charset="utf-8">
-   <title>COMP5347 Assignment One</title>
-   <link rel="stylesheet" href="index.css" />
-   <script type="text/javascript" src="index.js" defer></script>
-
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>COMP5347 Assignment One</title>
+  <!-- 引入 CSS 文件 -->
+  <link rel="stylesheet" href="index.css" />
+  <!-- 引入 JavaScript 文件，并使用 defer 以在页面加载完后执行 -->
+  <script type="text/javascript" src="index.js" defer></script>
 </head>
-<body>
-   <form method="get" action="">
-      <div id="title">
-         <h1>B2Ybooks</h1>
-      </div>
-      <div id="searchBox">
-         <div id="leftControl">
-            <div id="searchBar">
-               <input type="text" id="searchInput" placeholder="Search for books">
-               <button id="btn">Search</button>
-            </div>
-            <div id="filterBar">
-               <select id="filterCategories">
-                  <option value="" disabled selected hidden>Category</option>
-                  <option value="">All</option>
-                  <option value="Art">Art</option>
-                  <option value="Science History">Science History</option>
-                  <option value="Action and Adventure">Action and Adventure</option>
-                  <option value="Health">Health</option>
-                  <option value="Science Fiction">Science Fiction</option>
-                  <!-- <option value="GhostCategory">GhostCategory</option> --> /Just for boundary case testing - Pass
-               </select>
-               <button id="filterBtn">Filter</button>
-            </div>
-         </div>
-         <div id="rightControl">
-            <div id="cart">
-               <button id="addToCartBtn">Add to cart</button>
-               <button id="resetCartBtn">Reset the cart</button>
-               <span>🛒</span>
-               <span id="cartCount">(0)</span>
-             </div>
-             <!-- Dark Mode Switch -->
-            <div id="darkModeContainer">
-               <label class="switch">
-               <input type="checkbox" id="darkModeToggle">
-               <span class="slider round"></span>
-               </label>
-            </div>          
-         </div>
-         
 
+<body>
+  <!-- 黑暗模式切换容器 -->
+  <div id="darkModeContainer">
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider round">
+        <span class="icon moon">🌙</span>
+        <span class="icon sun">☀️</span>
+      </span>
+    </label>
+  </div>
+
+  <!-- 表单容器（无实际提交，仅用于交互） -->
+  <form method="get" action="">
+    <!-- 页面标题 -->
+    <div id="title">
+      <h1>B2Ybooks</h1>
+    </div>
+
+    <!-- 搜索与筛选区域 -->
+    <div id="searchBox">
+      <div id="leftControl">
+        <!-- 搜索栏 -->
+        <div id="searchBar">
+          <input type="text" id="searchInput" placeholder="Search for books">
+          <button id="btn">Search</button>
+        </div>
+
+        <!-- 分类筛选栏 -->
+        <div id="filterBar">
+          <select id="filterCategories">
+            <option value="" disabled selected hidden>Category</option>
+            <option value="">All</option>
+            <option value="Art">Art</option>
+            <option value="Science History">Science History</option>
+            <option value="Action and Adventure">Action and Adventure</option>
+            <option value="Health">Health</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Others">Others</option>
+            <!-- <option value="GhostCategory">GhostCategory</option> 用于边界测试 - 已通过 -->
+          </select>
+          <button id="filterBtn">Filter</button>
+          <!-- <button id="resetFilterBtn">Reset the search and filter</button> 可选重置按钮 -->
+        </div>
       </div>
-      <div id="listBox">
-         <!-- <div id="colorLine" >
-         </div> -->
-         <table>
-            <caption>Available Books</caption>
-            <thead>
-               <tr>
-                  <th></th>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Rating</th>
-                  <th>Author</th>
-                  <th>Year</th>
-                  <th>Price</th>
-                  <th>Publisher</th>
-                  <th>Category</th>
-               </tr>
-            </thead>
-            <tbody id="bookTable"> 
-            </tbody>
-         </table>
-      </div>   
-   </form>
+
+      <!-- 右侧购物车区域 -->
+      <div id="rightControl">
+        <div id="cart">
+          <button id="addToCartBtn">Add to cart</button>
+          <button id="resetCartBtn">Reset the cart</button>
+          <span>🛒</span>
+          <span id="cartCount">(0)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图书列表区域 -->
+    <div id="listBox">
+      <table>
+        <caption>Available Books</caption>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Star Rating</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Publisher</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <!-- 图书数据将通过 JavaScript 动态添加 -->
+        <tbody id="bookTable"></tbody>
+      </table>
+    </div>
+  </form>
 </body>
 </html>
