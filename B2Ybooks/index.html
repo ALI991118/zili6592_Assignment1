@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>COMP5347 Assignment One</title>
-  <!-- 引入 CSS 文件 -->
+  <title>B2Ybooks</title>
   <link rel="stylesheet" href="index.css" />
-  <!-- 引入 JavaScript 文件，并使用 defer 以在页面加载完后执行 -->
+  <!-- Use defer to execute after the page loads -->
   <script type="text/javascript" src="index.js" defer></script>
 </head>
 
 <body>
-  <!-- 黑暗模式切换容器 -->
-  <div id="darkModeContainer">
+  <!-- Dark mode switch -->
+  <div id="darkModeBox">
     <label class="switch">
       <input type="checkbox" id="darkModeToggle">
       <span class="slider round">
@@ -21,23 +20,23 @@
     </label>
   </div>
 
-  <!-- 表单容器（无实际提交，仅用于交互） -->
+  <!-- Form container (no actual submission, only for interaction)） -->
   <form method="get" action="">
-    <!-- 页面标题 -->
     <div id="title">
       <h1>B2Ybooks</h1>
     </div>
 
-    <!-- 搜索与筛选区域 -->
+    <!-- Search and filter functions -->
     <div id="searchBox">
+      <!-- Left area: Search and Filter -->
       <div id="leftControl">
-        <!-- 搜索栏 -->
+        <!-- SearchBar -->
         <div id="searchBar">
           <input type="text" id="searchInput" placeholder="Search for books">
           <button id="btn">Search</button>
         </div>
 
-        <!-- 分类筛选栏 -->
+        <!-- FilterBar -->
         <div id="filterBar">
           <select id="filterCategories">
             <option value="" disabled selected hidden>Category</option>
@@ -48,14 +47,14 @@
             <option value="Health">Health</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Others">Others</option>
-            <!-- <option value="GhostCategory">GhostCategory</option> 用于边界测试 - 已通过 -->
+            <!-- <option value="GhostCategory">GhostCategory</option> For boundary testing. - Passed-->
           </select>
           <button id="filterBtn">Filter</button>
-          <!-- <button id="resetFilterBtn">Reset the search and filter</button> 可选重置按钮 -->
+          <!-- <button id="resetFilterBtn">Reset the search and filter</button> Optional reset button -->
         </div>
       </div>
 
-      <!-- 右侧购物车区域 -->
+      <!-- Right area: Cart -->
       <div id="rightControl">
         <div id="cart">
           <button id="addToCartBtn">Add to cart</button>
@@ -66,8 +65,8 @@
       </div>
     </div>
 
-    <!-- 图书列表区域 -->
-    <div id="listBox">
+    <!-- Book list table function -->
+    <div id="tableBox">
       <table>
         <caption>Available Books</caption>
         <thead>
@@ -83,7 +82,7 @@
             <th>Category</th>
           </tr>
         </thead>
-        <!-- 图书数据将通过 JavaScript 动态添加 -->
+        <!-- The book data is dynamically added via JavaScript -->
         <tbody id="bookTable"></tbody>
       </table>
     </div>

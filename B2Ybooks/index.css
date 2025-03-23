@@ -10,14 +10,14 @@ footer {
 body {
   font-family: "Lucida Sans", Verdana, Arial, sans-serif;
   font-size: 80%;
-  position: relative; /* 🔥 关键！让 absolute 参考它定位 */
+  position: relative;
 }
 
 div#title {
   text-align: center;
 }
 div#searchBox,
-div#listBox {
+div#tableBox {
   margin: 0.25em auto;
   background-color: #ebf4fb;
   padding: 1em;
@@ -26,8 +26,8 @@ div#listBox {
 }
 #searchBox {
   display: flex;
-  justify-content: space-between; /* 左右对齐 */
-  align-items: center; /* 垂直居中 */
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
 }
 #leftControl {
@@ -39,7 +39,7 @@ div#listBox {
   gap: 10px;
 }
 
-div#listBox {
+div#tableBox {
   margin-top: 1em;
   background-color: #fafcff;
 }
@@ -80,8 +80,8 @@ caption {
   font-size: 1.2em;
 }
 
-/* Dark Mode Switch 基础样式 */
-#darkModeContainer {
+/* Dark Mode Switch*/
+#darkModeBox {
   position: absolute;
   top: 10px;
   right: 30px;
@@ -90,7 +90,7 @@ caption {
   z-index: 999;
 }
 
-/* Switch toggle 结构 */
+/* Switch toggle */
 .switch {
   position: relative;
   display: inline-block;
@@ -136,10 +136,8 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
-/* Dark Mode 样式（加 body.dark-mode 就会触发） */
-/* ==========================
-   🌙 Night Mode Styling
-   ========================== */
+/* Dark Mode style  */
+/* 🌙 Night Mode Styling*/
 
 body.dark-mode {
   background-color: #1e1e2f;
@@ -148,7 +146,7 @@ body.dark-mode {
 }
 
 /* Container backgrounds */
-body.dark-mode #listBox,
+body.dark-mode #tableBox,
 body.dark-mode #searchBox {
   background-color: #252537;
   border: 1px solid #3e3e5a;
@@ -186,7 +184,6 @@ body.dark-mode button:hover {
 }
 
 /* Toggle Switch handle animation */
-/* 🌗 Dark Mode 开关样式改进 */
 #darkModeContainer {
   display: absolute;
   top: 20px;
@@ -259,7 +256,7 @@ input:checked + .slider:before {
   transform: translateX(30px);
 }
 
-/* 🌙 Dark Mode 美化 */
+/* 🌙 Dark Mode*/
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -302,13 +299,10 @@ body.dark-mode .star-rating .empty {
   color: #555;
 }
 
-/* 默认亮色模式下的搜索高亮 */
-/* 白天模式高亮 */
 tr.highlighted {
-  background-color: #ffffcc;
+  background-color: rgb(162, 215, 222);
 }
 
-/* dark mode 下高亮样式 */
 body.dark-mode tr.highlighted td {
   background-color: rgb(31, 48, 160) !important;
 }
