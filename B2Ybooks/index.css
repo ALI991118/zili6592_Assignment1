@@ -302,11 +302,6 @@ body.dark-mode .star-rating .empty {
   color: #555;
 }
 
-/* Highlighted rows */
-/* body.dark-mode tr[style*="background-color: rgb(255, 255, 204)"],
-body.dark-mode tr[style*="#ffffcc"] {
-  background-color: #4e4e33 !important;
-} */
 /* 默认亮色模式下的搜索高亮 */
 /* 白天模式高亮 */
 tr.highlighted {
